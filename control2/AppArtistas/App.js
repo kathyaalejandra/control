@@ -87,6 +87,26 @@ function MainScreen() {
     </View>
   );
 }
+<View style={styles.buttonContainer}>
+        <Pressable 
+          style={styles.button} 
+          onPress={handleAddToPlaylist}
+        >
+          <Image source={require('./assets/music-note-icon.png')} style={styles.iconLeft} />
+          <Text style={styles.buttonText}>Agregar a la playlist</Text>
+        </Pressable>
+        
+        <Pressable 
+          style={styles.button}
+        >
+          <Image source={require('./assets/heart-icon.png')} style={styles.iconLeft} />
+          <Text style={styles.buttonText}>Favoritos</Text>
+        </Pressable>
+      </View>
+    </View>
+  );
+}
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -143,5 +163,30 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 8,
     marginBottom: 5,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 20,
+    marginTop: 20,
+  },
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FF5733',
+    padding: 10,
+    borderRadius: 8,
+    marginHorizontal: 5,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  iconLeft: {
+    width: 20,
+    height: 20,
+    marginRight: 8,
   },
 });
