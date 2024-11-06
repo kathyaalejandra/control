@@ -1,12 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, Image, Pressable, View } from 'react-native';
+import { StyleSheet, Text, Pressable, View, Alert } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Ionicons, FontAwesome } from '@expo/vector-icons'; 
 import HomeScreen from './HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
-      {/* Marcelo Bustamante - Kathya Mansilla*/}
+{/* Marcelo Bustamante - Kathya Mansilla*/}
 
 function MainScreen() {
   const navigation = useNavigation();
@@ -17,89 +18,21 @@ function MainScreen() {
         style={styles.iconButton} 
         onPress={() => navigation.navigate('Home')}
       >
-        <Image 
-          source={require('./assets/camiloo.png')}
-          style={styles.imagenprincipal}
-        />
       </Pressable>
-      <Text style={styles.text}>Camilo</Text>
-      <Text style={styles.subtitulo}>20 Canciones</Text>
 
-      <View style={styles.rowContainer}>
-        <View style={styles.artistContainer}>
-          <Pressable 
-            style={styles.iconButton} 
-            onPress={() => navigation.navigate('Home')}
-          >
-            <Image 
-              source={require('./assets/bunkers.jpg')}
-              style={styles.icon}
-            />
-          </Pressable>
-          <Text style={styles.text}>Los Bunkers</Text>
-          <Text style={styles.subtitulo}>8 Canciones</Text>
-        </View>
-
-        <View style={styles.artistContainer}>
-          <Pressable 
-            style={styles.iconButton} 
-            onPress={() => navigation.navigate('Home')}
-          >
-            <Image 
-              source={require('./assets/jere.jpg')}
-              style={styles.icon}
-            />
-          </Pressable>
-          <Text style={styles.text}>Jere Klein</Text>
-          <Text style={styles.subtitulo}>10 Canciones</Text>
-        </View>
-      </View>
-
-      <View style={styles.rowContainer}>
-        <View style={styles.artistContainer}>
-          <Pressable 
-            style={styles.iconButton} 
-            onPress={() => navigation.navigate('Home')}
-          >
-            <Image 
-              source={require('./assets/marciano.jpg')}
-              style={styles.icon}
-            />
-          </Pressable>
-          <Text style={styles.text}>Marcianeke</Text>
-          <Text style={styles.subtitulo}>9 Canciones</Text>
-        </View>
-
-        <View style={styles.artistContainer}>
-          <Pressable 
-            style={styles.iconButton} 
-            onPress={() => navigation.navigate('Home')}
-          >
-            <Image 
-              source={require('./assets/miranda.jpg')}
-              style={styles.icon}
-            />
-          </Pressable>
-          <Text style={styles.text}>Miranda</Text>
-          <Text style={styles.subtitulo}>17 Canciones</Text>
-        </View>
-      </View>
-    </View>
-  );
-}
-<View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer}>
         <Pressable 
           style={styles.button} 
-          onPress={handleAddToPlaylist}
+          onPress={() => Alert.alert("Alerta", "Has presionado el botón normal")}
         >
-          <Image source={require('./assets/music-note-icon.png')} style={styles.iconLeft} />
+          <Ionicons name="musical-note" size={20} color="white" style={styles.iconLeft} />
           <Text style={styles.buttonText}>Agregar a la playlist</Text>
         </Pressable>
         
         <Pressable 
           style={styles.button}
         >
-          <Image source={require('./assets/heart-icon.png')} style={styles.iconLeft} />
+          <FontAwesome name="heart" size={20} color="white" style={styles.iconLeft} />
           <Text style={styles.buttonText}>Favoritos</Text>
         </Pressable>
       </View>
@@ -126,44 +59,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
   },
-  rowContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-    width: '100%',
-  },
-  artistContainer: {
-    alignItems: 'center',
-    flex: 1,
-    marginVertical: 10,
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: 'black',
-    marginBottom: 5,
-  },
-  subtitulo: {
-    fontSize: 16,
-    color: 'black',
-  },
-  iconButton: {
-    alignItems: 'center',
-    padding: 12,
-    borderRadius: 8,
-  },
-  imagenprincipal: {
-    width: 350,
-    height: 220,
-    borderRadius: 10,
-    marginBottom: 10,
-  },
-  icon: {
-    width: 150,
-    height: 100,
-    borderRadius: 8,
-    marginBottom: 5,
-  },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -185,8 +80,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   iconLeft: {
-    width: 20,
-    height: 20,
     marginRight: 8,
   },
 });
